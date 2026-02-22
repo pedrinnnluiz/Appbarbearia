@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Appbarbearia.CadastroPage"
+             Title="CadastroPage">
+    <VerticalStackLayout Spacing="32">
+        
+        <Label 
+            Text="Bem-Vindo ao App Barber Sorocaba!"
+            FontSize="Large"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Faça seu cadastro agora mesmo!"
+            FontSize="Medium"
+            Padding="20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"></Label>
+
+        <Entry
+            x:Name="NomeEntry"
+            Placeholder="Insira seu nome"
+            FontAttributes="Bold"
+            ></Entry>
+
+        <Entry
+            x:Name="EmailEntry"
+            Placeholder="Insira seu Email"
+            FontAttributes="Bold"
+            ></Entry>
+
+        <Entry
+            x:Name="SenhaEntry"
+            Placeholder="Insira sua senha"></Entry>
+
+        <Button
+            x:Name="ConcluirCadastro"
+            Text="Concluir Cadastro"
+            Clicked="ConcluirCadastro_Clicked"></Button>
+
+        
+    </VerticalStackLayout>
+</ContentPage>
