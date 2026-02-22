@@ -39,6 +39,11 @@
             Text="Concluir Cadastro"
             Clicked="ConcluirCadastro_Clicked"></Button>
 
-        
+        <Button
+            x:Name="LoginButton"
+            Text="Já possui Cadastro?
+            Faça seu Login"
+            Clicked="LoginButton_Clicked"
+></Button>
     </VerticalStackLayout>
 </ContentPage>

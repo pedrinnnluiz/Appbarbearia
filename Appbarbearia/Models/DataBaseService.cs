@@ -28,5 +28,15 @@ namespace Appbarbearia.Models
         {
             return _db.Table<Cliente>().ToListAsync();
         }
+        public Task <Cliente> LoginAsync(string Email, string Senha)
+        {
+            return _db.Table<Cliente>()
+                .Where(x => x.Email == Email && x.Senha == Senha)
+                .FirstOrDefaultAsync();
+        }
+        public Task <int> DeleteUsuarioAsync(int id)
+        {
+            return _db.DeleteAsync(id);
+        }
     }
 }

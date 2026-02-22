@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Appbarbearia.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Spacing="52">
+        <Label 
+            Text="Faça seu Login!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="EmailEntry"
+            Placeholder="Insira o email"
+            ></Entry>
+
+        <Entry
+            x:Name="SenhaEntry"
+            Placeholder="Insira sua senha"></Entry>
+
+        <Button
+            x:Name="Login"
+            Text="Logar"
+            Padding="32"
+            Clicked="Login_Clicked"></Button>
+
+        <Button
+            x:Name="ExcluirId"
+            Text="Excluir conta"
+            Clicked="ExcluirId_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>
