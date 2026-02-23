@@ -28,15 +28,29 @@ namespace Appbarbearia.Models
         {
             return _db.Table<Cliente>().ToListAsync();
         }
-        public Task <Cliente> LoginAsync(string Email, string Senha)
+        public Task<Cliente> LoginAsync(string Email, string Senha)
         {
             return _db.Table<Cliente>()
                 .Where(x => x.Email == Email && x.Senha == Senha)
                 .FirstOrDefaultAsync();
         }
-        public Task <int> DeleteUsuarioAsync(int id)
+        public Task<int> DeleteUsuarioAsync(int id)
         {
-            return _db.DeleteAsync(id);
+            return _db.DeleteAsync<Cliente>(id);
         }
+
+        public Task<int> SalvarAgendamento(Agendamento agendamento)
+        {
+            return _db.InsertAsync(agendamento);
+        }
+
+        public Task<List<Agendamento>> ListarAgendamento(int clienteId)
+        {
+            return _db.Table<Agendamento>()
+                .Where(a => a.ClienteID == clienteId)
+                .ToListAsync();
+
+        }
+      
     }
 }

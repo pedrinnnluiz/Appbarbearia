@@ -1,25 +1,49 @@
-﻿namespace Appbarbearia
+﻿using Appbarbearia.Models;
+
+namespace Appbarbearia
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private Cliente _clienteLogado;
 
-        public MainPage()
+        public MainPage(Cliente cliente)
         {
             InitializeComponent();
+            _clienteLogado = cliente;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void ConfirmarAgendamento_Clicked(object sender, EventArgs e)
         {
-            count++;
+            
+            if (BarbeiroPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Erro", "Selecione ao menos um barbeiro", "Ok");
+                return;
+            }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            if (ServicoPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Erro", "Selecione ao menos um serviço", "Ok");
+                return;
+            }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+
+            string barbeiroSelecionado = BarbeiroPicker.SelectedItem.ToString();
+            string servicoSelecionado = ServicoPicker.SelectedItem.ToString();
+            DateTime dataCompleta = EscolherDataPicker.Date + EscolherHoraPicker.Time;
+
+   
+            var agendamento = new Agendamento()
+            {
+                ClienteID = _clienteLogado.Id,
+                Barbeiro = barbeiroSelecionado,
+                ServicoSelecionado = servicoSelecionado,
+                DataCompleta = dataCompleta
+            };
+
+            await App.Database.SalvarAgendamento(agendamento);
+
+            await DisplayAlert("Sucesso", "Agendamento realizado!", "Ok");
         }
     }
-
 }

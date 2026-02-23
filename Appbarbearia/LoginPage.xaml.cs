@@ -33,7 +33,7 @@ public partial class LoginPage : ContentPage
 
             await DisplayAlert("Sucesso", "Bem-Vindo!", "Seguir");
 
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage(cliente));
         }
         else
         {

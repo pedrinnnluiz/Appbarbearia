@@ -10,11 +10,13 @@ namespace Appbarbearia.Models
     public class Agendamento
     {
         [PrimaryKey, AutoIncrement]
-        public string Id {  get; set; }
+        public int Id {  get; set; }
 
-        public string ClienteID { get; set; }
-        public DateTime Data { get; set; }
+        public int ClienteID { get; set; }
+        public DateTime DataCompleta { get; set; }
 
-        public string Serviço { get; set; }
+        public string ServicoSelecionado { get; set; }
+
+        public string Barbeiro  { get; set; }   
      }
 }

@@ -21,12 +21,13 @@
         <Button
             x:Name="Login"
             Text="Logar"
-            Padding="32"
+            Padding="16"
             Clicked="Login_Clicked"></Button>
 
         <Button
             x:Name="ExcluirId"
             Text="Excluir conta"
+            Padding="16"
             Clicked="ExcluirId_Clicked"></Button>
     </VerticalStackLayout>
 </ContentPage>

@@ -27,7 +27,7 @@ public partial class CadastroPage : ContentPage
             return;
         }
         await DisplayAlert("Sucesso!", "Seu Cadastro Foi concluído com Sucesso", "ok");
-        await Navigation.PushAsync(new MainPage());
+        await Navigation.PushAsync(new MainPage(cliente));
     }
 
     private async void LoginButton_Clicked(object sender, EventArgs e)
