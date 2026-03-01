@@ -41,9 +41,15 @@ namespace Appbarbearia
                 DataCompleta = dataCompleta
             };
 
+            string resumo = agendamento.GerarResumo();
+           
+            await DisplayAlert("Resumo do agendamento", resumo, "Confirmar");
+
             await App.Database.SalvarAgendamento(agendamento);
 
             await DisplayAlert("Sucesso", "Agendamento realizado!", "Ok");
+
+            await Navigation.PushAsync(new MeusAgendamentos(_clienteLogado));
         }
     }
 }

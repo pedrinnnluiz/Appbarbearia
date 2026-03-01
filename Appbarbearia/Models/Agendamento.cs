@@ -15,6 +15,16 @@ namespace Appbarbearia.Models
         public int ClienteID { get; set; }
         public DateTime DataCompleta { get; set; }
 
+        public string GerarResumo()
+        {
+            { 
+            return $"Cliente: {ClienteID}\n" +
+                   $"Barbeiro: {Barbeiro}\n" +
+                   $"Serviço: {ServicoSelecionado}\n" +
+                   $"Data: {DataCompleta}";
+        }
+    }
+        
         public string ServicoSelecionado { get; set; }
 
         public string Barbeiro  { get; set; }   
